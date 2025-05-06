@@ -503,248 +503,151 @@ footer {
 
 /* ========== RESPONSIVE MOBILE FIRST ========== */
 @media (max-width: 1200px) {
-  .contenedor-mosaico {
-    padding: 0 20px;
-  }
+    /* Ajustes generales para pantallas grandes */
+    .contenedor-mosaico {
+        padding: 0 20px;
+    }
 }
 
-/* Tabletas */
 @media (max-width: 992px) {
-  .navbar {
-    padding: 12px 5%;
-  }
-
-  .logo {
-    font-size: 1.3rem;
-  }
-
-  .hero h1 {
-    font-size: 2.2rem;
-    line-height: 1.2;
-  }
-
-  .card {
-    width: 90%;
-    right: 5% !important;
-  }
+    /* Tabletas */
+    .navbar {
+        padding: 12px 5%;
+    }
+    
+    .hero h1 {
+        font-size: 2.2rem;
+    }
 }
 
-/* Móviles grandes */
 @media (max-width: 768px) {
-  /* Navbar móvil */
-  .nav-right {
-    display: none;
-  }
-
-  .navbar::after {
-    bottom: -3%;
-  }
-
-  /* Hero section */
-  .hero {
-    padding: 60px 15px;
-  }
-
-  .hero h1 {
-    font-size: 1.8rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-    .contenedor-tarjetas,
-    .contenedor-imagenes,
-    .imagen-izq,
-    .imagen-der,
-    .card {
-        all: initial;
-        display: block !important;
-        position: static !important;
-        width: 100% !important;
-        height: auto !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        transform: none !important;
+    /* Mobile - Cambio radical de estructura */
+    body {
+        overflow-x: hidden;
     }
 
-    /* 2. Nueva estructura mobile-first */
+    /* Navbar móvil */
+    .nav-right {
+        display: none;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+    }
+
+    /* Hero section */
+    .hero {
+        padding: 60px 15px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+        line-height: 1.3;
+    }
+
+    /* Primera sección - Tarjetas e imágenes */
     .contenedor-tarjetas {
-        display: flex !important;
+        display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 25px;
+        min-height: auto;
+        margin: 0;
         padding: 15px;
     }
 
-    /* 3. Imágenes en grid simple */
     .contenedor-imagenes {
-        display: grid !important;
+        display: grid;
         grid-template-columns: 1fr;
         gap: 15px;
         order: -1;
     }
 
-    .imagen-izq, .imagen-der {
-        height: 200px;
-        border-radius: 10px;
-        overflow: hidden;
-    }
-
-    /* 4. Tarjetas como bloques simples */
-    .card {
-        background: rgba(255, 180, 206, 0.9) !important;
-        border-radius: 15px;
-        padding: 20px;
-        box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-    }
-
-    .card-visible, .card-hidden {
-        display: block !important;
-        opacity: 1 !important;
+    .imagen-izq,
+    .imagen-der {
         position: static !important;
+        width: 100% !important;
+        height: 200px !important;
+        margin: 0 !important;
+        border-radius: 10px;
+    }
+
+    .contenedor-tarjetas::before {
+        display: none;
+    }
+
+    /* Tarjetas principales */
+    .card {
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 20px !important;
+        opacity: 1 !important;
+    }
+
+    .card-visible,
+    .card-hidden {
+        position: static !important;
+        opacity: 1 !important;
     }
 
     .card-hidden {
-        display: none !important;
+        display: none;
     }
 
-    /* 5. Tipografía móvil */
-    .card h3 {
-        font-size: 1.4rem !important;
-        color: #4A148C !important;
-        margin-bottom: 10px;
+    /* Sección culturas */
+    .fila-culturas {
+        flex-direction: column;
+        gap: 1rem;
     }
 
-    .stat {
-        font-size: 1.1rem !important;
-        color: #333 !important;
+    .cultura-item {
+        height: 220px;
+        min-width: 100%;
+    }
+
+    .cultura-overlay {
+        transform: none !important;
+        opacity: 1 !important;
+        background: rgba(74, 20, 140, 0.9);
+        padding: 1rem;
+    }
+
+    .cultura-overlay p {
+        opacity: 1 !important;
+        font-size: 0.9rem;
+    }
+
+    /* Columnas soluciones */
+    .columnas-soluciones {
+        grid-template-columns: 1fr;
+    }
+
+    .columna {
+        padding: 20px;
     }
 }
 
-
-
-  /* Ocultar imágenes complejas */
-  .contenedor-imagenes {
-    display: none;
-  }
-
-  /* Sección culturas */
-  .fila-culturas {
-    flex-direction: column;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .cultura-item {
-    height: 200px;
-    min-width: 100%;
-  }
-
-  .cultura-overlay {
-    transform: none;
-    opacity: 1;
-    background: rgba(74, 20, 140, 0.85);
-    padding: 1rem;
-  }
-
-  .cultura-overlay p {
-    opacity: 1 !important;
-    font-size: 0.8rem;
-    line-height: 1.4;
-  }
-
-  .cultura-item img {
-    filter: none;
-  }
-
-  /* Columnas soluciones */
-  .columnas-soluciones {
-    grid-template-columns: 1fr;
-  }
-
-  .columna:not(:last-child)::after {
-    display: none;
-  }
-
-  .columna {
-    padding: 20px 15px;
-  }
-
-
-/* Móviles pequeños */
 @media (max-width: 576px) {
-  body {
-    overflow-x: hidden;
-  }
+    /* Mobile pequeño */
+    .hero {
+        padding: 40px 10px;
+    }
 
-  .hero {
-    padding: 40px 10px;
-  }
+    .imagen-izq,
+    .imagen-der {
+        height: 180px !important;
+    }
 
-  .section h2 {
-    font-size: 1.5rem;
-  }
+    .card h3 {
+        font-size: 1.3rem !important;
+    }
 
-  .cultura-item {
-    height: 180px;
-  }
+    .cultura-item {
+        height: 180px !important;
+    }
 
-  .cultura-overlay h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.3rem;
-  }
-
-  .frase-destacada {
-    font-size: 0.9rem;
-    padding: 10px;
-  }
-
-  .footer-links {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .footer-legal p {
-    font-size: 0.8rem;
-  }
-}
-.contenedor-imagenes {
-  gap: 10px;                   /* Reducir espacio entre imágenes */
-}
-
-.imagen-izq, 
-.imagen-der {
-  height: 160px !important;               /* Altura ligeramente menor */
-}
-
-.card {
-  margin: 10px 0 !important;              /* Margen más ajustado */
-  min-height: 90px;            /* Altura mínima reducida */
-}
-
-.card h3 {
-  font-size: 1.2rem;           /* Tamaño óptimo para móvil */
-}
-
-.stat {
-  font-size: 1rem;             /* Mejor legibilidad */
-}
-
-
-/* Dispositivos muy pequeños */
-@media (max-width: 400px) {
-  .hero h1 {
-    font-size: 1.5rem;
-  }
-
-  .card h3 {
-    font-size: 1.1rem;
-  }
-
-  .stat {
-    font-size: 0.9rem;
-  }
-
-  .cultura-item {
-    height: 160px;
-  }
+    .frase-destacada {
+        font-size: 0.9rem;
+    }
 }
