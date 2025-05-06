@@ -16,3 +16,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Para la sección culturas
+document.querySelectorAll('.cultura-item').forEach(item => {
+    item.addEventListener('click', function() {
+        // Cierra otros elementos primero
+        document.querySelectorAll('.cultura-item').forEach(i => {
+            if (i !== this) i.classList.remove('active');
+        });
+        
+        // Alternar estado
+        this.classList.toggle('active');
+    });
+});
