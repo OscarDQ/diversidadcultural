@@ -552,66 +552,76 @@ footer {
   .hero p {
     font-size: 1rem;
   }
-  .contenedor-tarjetas {
-    display: flex;           /* Cambiar a flex para ordenar elementos */
-    flex-direction: column;  /* Apilar verticalmente */
-    min-height: auto;       /* Eliminar altura fija */
-    margin: 20px 0;         /* Margen reducido */
-    padding: 0 15px;        /* Padding lateral */
-}
+      /* 1. Reset completo del contenedor principal */
+      .contenedor-tarjetas {
+        display: block !important;
+        position: relative !important;
+        min-height: auto !important;
+        margin: 0;
+        padding: 15px;
+    }
 
-/* 2. Reactivar contenedor de imágenes */
-.contenedor-imagenes {
-    display: grid;           /* Usar grid para mejor control */
-    grid-template-columns: 1fr; /* 1 columna */
-    gap: 20px;              /* Espacio entre imágenes */
-    order: 1;               /* Posicionar arriba de las tarjetas */
-    position: static;       /* Eliminar posicionamiento absoluto */
-    width: 100%;            /* Ancho completo */
-    min-height: auto;       /* Altura automática */
-}
+    /* 2. Reactivación y reestructuración de imágenes */
+    .contenedor-imagenes {
+        display: grid !important;
+        grid-template-columns: 1fr;
+        gap: 15px;
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        margin-bottom: 20px;
+    }
 
-/* 3. Resetear estilos de imágenes */
-.imagen-izq, 
-.imagen-der {
-    position: static;       /* Eliminar posicionamiento absoluto */
-    width: 100% !important; /* Forzar ancho completo */
-    height: 200px;          /* Altura fija para consistencia */
-    max-width: none;        /* Anular max-width anterior */
-    transform: none !important; /* Eliminar transformaciones */
-    margin: 0 !important;   /* Resetear márgenes */
-}
+    /* 3. Normalización de imágenes */
+    .imagen-izq,
+    .imagen-der {
+        position: static !important;
+        width: 100% !important;
+        height: 200px !important;
+        max-width: none !important;
+        transform: none !important;
+        margin: 0 !important;
+        inset: auto !important;
+    }
 
-/* 4. Reorganizar tarjetas */
-.card {
-    position: relative !important; /* Resetear posicionamiento */
-    width: 100% !important;       /* Ancho completo */
-    height: auto;                 /* Altura automática */
-    margin: 15px 0;               /* Espaciado vertical */
-    order: 2;                     /* Posicionar debajo de imágenes */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra más suave */
-}
+    /* 4. Eliminar posicionamiento especial de imágenes */
+    .imagen-superior,
+    .imagen-inferior {
+        position: static !important;
+    }
 
-/* 5. Ajustar contenido de tarjetas */
-.card-visible {
-    opacity: 1 !important;        /* Mostrar siempre el contenido */
-    padding: 15px;               /* Espaciado interno */
-}
+    /* 5. Reestructuración de tarjetas */
+    .card {
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        margin: 15px 0 !important;
+        transform: none !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+    }
 
-.card-hidden {
-    display: none;               /* Ocultar contenido extra en móvil */
-}
+    /* 6. Ajuste de contenido de tarjetas */
+    .card-visible,
+    .card-hidden {
+        position: static !important;
+        width: 100% !important;
+        opacity: 1 !important;
+        padding: 15px !important;
+        transform: none !important;
+    }
 
-/* 6. Tipografía móvil */
-.card h3 {
-    font-size: 1.4rem;           /* Tamaño legible */
-    margin-bottom: 8px;          /* Espaciado reducido */
-}
+    /* 7. Ocultar elementos innecesarios en móvil */
+    .card-hidden {
+        display: none;
+    }
 
-.stat {
-    font-size: 1.1rem;           /* Tamaño adecuado */
-    color: #4A148C;              /* Color para mejor contraste */
-}
+    /* 8. Eliminar pseudo-elementos conflictivos */
+    .contenedor-tarjetas::before {
+        content: none !important;
+    }
 }
 
 
@@ -701,16 +711,16 @@ footer {
   }
 }
 .contenedor-imagenes {
-  gap: 15px;                   /* Reducir espacio entre imágenes */
+  gap: 10px;                   /* Reducir espacio entre imágenes */
 }
 
 .imagen-izq, 
 .imagen-der {
-  height: 180px;               /* Altura ligeramente menor */
+  height: 160px !important;               /* Altura ligeramente menor */
 }
 
 .card {
-  margin: 10px 0;              /* Margen más ajustado */
+  margin: 10px 0 !important;              /* Margen más ajustado */
   min-height: 90px;            /* Altura mínima reducida */
 }
 
