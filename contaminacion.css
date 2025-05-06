@@ -508,7 +508,10 @@ footer {
         padding: 0 20px;
     }
 }
-
+@media (hover: hover) {
+    .card:hover .card-visible { opacity: 0; }
+    .card:hover .card-hidden { opacity: 1; }
+}
 @media (max-width: 992px) {
     /* Tabletas */
     .navbar {
@@ -522,6 +525,8 @@ footer {
 
 @media (max-width: 768px) {
     /* Mobile - Cambio radical de estructura */
+    .card.active .card-visible { opacity: 0 !important; }
+    .card.active .card-hidden { opacity: 1 !important; }
     body {
         overflow-x: hidden;
     }
