@@ -501,149 +501,243 @@ footer {
     color: #2a9d8f;
 }
 
-/* ========== MEDIA QUERIES ========== */
+/* ========== RESPONSIVE MOBILE FIRST ========== */
 @media (max-width: 1200px) {
-    /* Ajustes generales */
-    .hero {
-      padding: 80px 15px;
-    }
-    
-    .card {
-      width: 480px;
-    }
+  .contenedor-mosaico {
+    padding: 0 20px;
   }
-  
-  @media (max-width: 992px) {
-    /* Navbar */
-    .nav-right {
-      gap: 15px;
-    }
-    
-    .navbar a {
-      font-size: 0.9rem;
-    }
-  
-    /* Tarjetas principales */
-    .contenedor-tarjetas {
-      min-height: 800px;
-    }
-    
-    .card {
-      width: 400px;
-      height: 110px;
-    }
-  
-    .card h3 {
-      font-size: 1.3rem;
-    }
-  
-    .stat {
-      font-size: 1rem;
-    }
-  
-    /* Imágenes */
-    .imagen-izq, .imagen-der {
-      width: 45%;
-      height: 150px;
-    }
+}
+
+/* Tabletas */
+@media (max-width: 992px) {
+  .navbar {
+    padding: 12px 5%;
   }
-  
-  @media (max-width: 768px) {
-    /* Navbar móvil */
-    .nav-right {
-      display: none; /* Ocultar en móviles */
-    }
-    
-    .navbar {
-      padding: 10px 5%;
-      justify-content: center;
-    }
-  
-    /* Hero section */
-    h1 {
-      font-size: 2rem;
-    }
-  
-    h2 {
-      font-size: 1.8rem;
-    }
-  
-    /* Sección de tarjetas */
-    .contenedor-tarjetas {
-      min-height: auto;
-      margin: 20px 0;
-    }
-  
-    .card {
-      position: static;
-      width: 100%;
-      margin: 15px 0;
-      height: auto;
-      min-height: 100px;
-    }
-  
-    .contenedor-imagenes {
-      display: none; /* Ocultar imágenes en móviles */
-    }
-  
-    /* Columnas soluciones */
-    .columnas-soluciones {
-      grid-template-columns: 1fr;
-    }
-  
-    .columna:not(:last-child)::after {
-      display: none;
-    }
-  
-    .columna {
-      padding: 20px 15px;
-    }
-  
-    /* Culturas */
-    .cultura-item {
-      height: 180px;
-    }
-  
-    .cultura-overlay h3 {
-      font-size: 1.3rem;
-    }
+
+  .logo {
+    font-size: 1.3rem;
   }
-  
-  @media (max-width: 576px) {
-    /* Ajustes finales */
-    html {
-      font-size: 14px;
-    }
-  
-    .hero {
-      padding: 60px 10px;
-    }
-  
-    .cultura-overlay {
-      padding: 1rem;
-    }
-  
-    .footer-links {
-      flex-direction: column;
-      gap: 10px;
-    }
-    
-    .footer-legal p {
-      font-size: 0.9rem;
-    }
+
+  .hero h1 {
+    font-size: 2.2rem;
+    line-height: 1.2;
   }
-  
-  /* Mejora de legibilidad en móviles */
-  @media (hover: none) {
-    .card-hidden {
-      opacity: 1 !important;
-    }
-    
-    .card-visible {
-      opacity: 0 !important;
-    }
-    
-    .card:hover {
-      transform: none;
-    }
+
+  .card {
+    width: 90%;
+    right: 5% !important;
   }
+}
+
+/* Móviles grandes */
+@media (max-width: 768px) {
+  /* Navbar móvil */
+  .nav-right {
+    display: none;
+  }
+
+  .navbar::after {
+    bottom: -3%;
+  }
+
+  /* Hero section */
+  .hero {
+    padding: 60px 15px;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+  .contenedor-tarjetas {
+    display: flex;           /* Cambiar a flex para ordenar elementos */
+    flex-direction: column;  /* Apilar verticalmente */
+    min-height: auto;       /* Eliminar altura fija */
+    margin: 20px 0;         /* Margen reducido */
+    padding: 0 15px;        /* Padding lateral */
+}
+
+/* 2. Reactivar contenedor de imágenes */
+.contenedor-imagenes {
+    display: grid;           /* Usar grid para mejor control */
+    grid-template-columns: 1fr; /* 1 columna */
+    gap: 20px;              /* Espacio entre imágenes */
+    order: 1;               /* Posicionar arriba de las tarjetas */
+    position: static;       /* Eliminar posicionamiento absoluto */
+    width: 100%;            /* Ancho completo */
+    min-height: auto;       /* Altura automática */
+}
+
+/* 3. Resetear estilos de imágenes */
+.imagen-izq, 
+.imagen-der {
+    position: static;       /* Eliminar posicionamiento absoluto */
+    width: 100% !important; /* Forzar ancho completo */
+    height: 200px;          /* Altura fija para consistencia */
+    max-width: none;        /* Anular max-width anterior */
+    transform: none !important; /* Eliminar transformaciones */
+    margin: 0 !important;   /* Resetear márgenes */
+}
+
+/* 4. Reorganizar tarjetas */
+.card {
+    position: relative !important; /* Resetear posicionamiento */
+    width: 100% !important;       /* Ancho completo */
+    height: auto;                 /* Altura automática */
+    margin: 15px 0;               /* Espaciado vertical */
+    order: 2;                     /* Posicionar debajo de imágenes */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra más suave */
+}
+
+/* 5. Ajustar contenido de tarjetas */
+.card-visible {
+    opacity: 1 !important;        /* Mostrar siempre el contenido */
+    padding: 15px;               /* Espaciado interno */
+}
+
+.card-hidden {
+    display: none;               /* Ocultar contenido extra en móvil */
+}
+
+/* 6. Tipografía móvil */
+.card h3 {
+    font-size: 1.4rem;           /* Tamaño legible */
+    margin-bottom: 8px;          /* Espaciado reducido */
+}
+
+.stat {
+    font-size: 1.1rem;           /* Tamaño adecuado */
+    color: #4A148C;              /* Color para mejor contraste */
+}
+}
+
+
+  /* Ocultar imágenes complejas */
+  .contenedor-imagenes {
+    display: none;
+  }
+
+  /* Sección culturas */
+  .fila-culturas {
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .cultura-item {
+    height: 200px;
+    min-width: 100%;
+  }
+
+  .cultura-overlay {
+    transform: none;
+    opacity: 1;
+    background: rgba(74, 20, 140, 0.85);
+    padding: 1rem;
+  }
+
+  .cultura-overlay p {
+    opacity: 1 !important;
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .cultura-item img {
+    filter: none;
+  }
+
+  /* Columnas soluciones */
+  .columnas-soluciones {
+    grid-template-columns: 1fr;
+  }
+
+  .columna:not(:last-child)::after {
+    display: none;
+  }
+
+  .columna {
+    padding: 20px 15px;
+  }
+
+
+/* Móviles pequeños */
+@media (max-width: 576px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .hero {
+    padding: 40px 10px;
+  }
+
+  .section h2 {
+    font-size: 1.5rem;
+  }
+
+  .cultura-item {
+    height: 180px;
+  }
+
+  .cultura-overlay h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .frase-destacada {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer-legal p {
+    font-size: 0.8rem;
+  }
+}
+.contenedor-imagenes {
+  gap: 15px;                   /* Reducir espacio entre imágenes */
+}
+
+.imagen-izq, 
+.imagen-der {
+  height: 180px;               /* Altura ligeramente menor */
+}
+
+.card {
+  margin: 10px 0;              /* Margen más ajustado */
+  min-height: 90px;            /* Altura mínima reducida */
+}
+
+.card h3 {
+  font-size: 1.2rem;           /* Tamaño óptimo para móvil */
+}
+
+.stat {
+  font-size: 1rem;             /* Mejor legibilidad */
+}
+
+
+/* Dispositivos muy pequeños */
+@media (max-width: 400px) {
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .card h3 {
+    font-size: 1.1rem;
+  }
+
+  .stat {
+    font-size: 0.9rem;
+  }
+
+  .cultura-item {
+    height: 160px;
+  }
+}
